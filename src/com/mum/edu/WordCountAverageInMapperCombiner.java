@@ -32,13 +32,13 @@ public class WordCountAverageInMapperCombiner {
 	        Text word = new Text();
 	        word.set(u);
 	        if(mapper.containsKey(word)){
-            	PairWritable pair = mapper.get(word);
-            	pair.setKey(pair.getKey()+Integer.valueOf(r));
-            	pair.setValue(pair.getValue()+1);
-            	mapper.put(new Text(u), pair);
-            }else{
-            	mapper.put(new Text(u), new PairWritable(Integer.valueOf(r),1));
-            }   
+			PairWritable pair = mapper.get(word);
+			pair.setKey(pair.getKey()+Integer.valueOf(r));
+			pair.setValue(pair.getValue()+1);
+			mapper.put(new Text(u), pair);
+		}else{
+			mapper.put(new Text(u), new PairWritable(Integer.valueOf(r),1));
+		}   
 	        
 	    }
 	    
